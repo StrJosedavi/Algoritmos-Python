@@ -18,37 +18,30 @@ try:
 
         for i in range(0, 13):
             NumberCard.append(str(random.randrange(0, 9)))
-        
+
         finalNumber = []
         finalNumber.extend(NumberCard)
 
-        for i in range(len(NumberCard)-1, -1, -2):
+        for i in range(0, len(NumberCard), 2):
             NumberCard[i] = list(str(int(NumberCard[i]) * 2))
-
 
         ListNumberCard = []
         for i in NumberCard:
             ListNumberCard.extend(i)
 
         sumNumbers = 0
-        for i in range(0, len(ListNumberCard)-1):
+        for i in range(0, len(ListNumberCard)):
             sumNumbers += int(ListNumberCard[i]) 
         
         sumNumbers = list(str(sumNumbers))
 
-        print(sumNumbers)
-
-        print(sumNumbers[1])
-
-        if int(sumNumbers[1]) >= 5:
-            print(sumNumbers)
-            
-            digitVerify = list(100 - int(sumNumbers[0] + sumNumbers[1]))
-            finalNumber.extend(digitVerify[1])
-            print(' '.join(finalNumber).replace(" ", ""))
-
-        elif int(sumNumbers[1] <= 4):
-            print('a')
+        digitVerify = []
+        digitVerify = list(str(100 - int(sumNumbers[0] + sumNumbers[1])))
+        finalNumber.extend(digitVerify[1])
+        print(' '.join(finalNumber).replace(" ", ""))
+   
+        input('Pressione <Enter> para Encerrar!!')
+       
 except:
     print('Você não digitou um numero, correspondente a um Banco!!')
 
